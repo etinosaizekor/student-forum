@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         },
         body: {
-            type: Sequelize.STRING,
+            type: Sequelize.TEXT,
             allowNull: false
         },
         tags: {

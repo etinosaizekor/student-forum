@@ -1,7 +1,7 @@
 const {tryCatchWrapper} = require("../utils/withTryCatch");
 
 const create = tryCatchWrapper(async(Model, body) => {
-    const newInstance = await Model.create(body);
+    const newInstance = await Model.bulkCreate(body);
     return JSON.stringify(newInstance)
 })
 
@@ -23,7 +23,7 @@ const update = tryCatchWrapper(async(Model, instanceIdentifier, instanceNewDetai
 });
 
 const deleteInstance = tryCatchWrapper(async(Model, criteria) => {
-    const result = Model.delete({where: criteria});
+    const result = Model.destroy({where: criteria});
     return result
 })
 

@@ -7,7 +7,24 @@ const createPost = async (req, res) => {
     res.send(newPost)
 }
 
+const searchPost = async (req, res) => {
+    const post = await query.search(Post, req.params);
+    res.send(post)
+}
+
+const deletePost = async (req, res) => {
+    const delectedRowCount = await query.deleteInstance(Post, req.params);
+    if(delectedRowCount[0] == 0){
+        res.send("No post was deleted")
+    }
+    else{
+        res.send("Post delected successful")
+    }
+}
+
 module.exports = {
-    createPost
+    createPost,
+    searchPost,
+    deletePost
 }
 
