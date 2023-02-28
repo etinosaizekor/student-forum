@@ -15,11 +15,19 @@ module.exports = (sequelize, Sequelize) => {
         },
         date_of_birth: {
             type: Sequelize.DATE,
-            allowNull: false
+            allowNull: true
         },
         school: {
             type: Sequelize.STRING
+        },
+        image: {
+            type: Sequelize.BLOB('long'),
+            allowNull: true
         }
-    });
+    },
+    {
+        timestamps: false
+    }
+    );
     return User;
 }

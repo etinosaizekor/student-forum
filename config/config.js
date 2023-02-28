@@ -5,9 +5,11 @@ const dbUser = process.env.DATABASE_USER
 const dbPsw = process.env.DATABASE_PSW
 
 module.exports = {
-    HOST: 'localhost',
-    USER: dbUser,
-    PASSWORD: dbPsw,
-    DB: databaseName,
-    dialect: 'mysql',
-  };
+  "development" : {
+    "username" : dbUser,
+    "password": dbPsw,
+    "database": databaseName,
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

@@ -1,14 +1,24 @@
 const fs = require('fs');
 const Sequelize = require("sequelize");
-const dbConfig = require("../config/db.config.js");
+const dbConfig = require("../config/config.js").development;
 const path = require('path')
 const basename = path.basename(__filename);
 
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
-  host: dbConfig.HOST,
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username, dbConfig.password, {
+  host: dbConfig.host,
   dialect: dbConfig.dialect,
+  port: 3306,
   operatorsAliases: 0,
 }); 
+
+sequelize.authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch((error) => {
+    console.error('Unable to connect to the database:', error);
+  });
+
 
 const db = {};
 
