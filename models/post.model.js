@@ -5,7 +5,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        body: {
+        content: {
             type: Sequelize.TEXT,
             allowNull: false
         },
