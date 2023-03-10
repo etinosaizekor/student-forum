@@ -15,7 +15,9 @@ app.use((req, res, next) => {
   });
 
 app.use('/users', routes.user);
-app.use('/posts', routes.post)
+app.use('/posts', routes.post);
+app.use('/category', routes.category)
+
 
 app.listen(PORT, ()=> {
     console.log(`Server running at port ${PORT}`);
