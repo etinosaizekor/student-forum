@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Group = sequelize.define('group', {
+    const Group = sequelize.define('Group', {
         group_name: {
             type: Sequelize.STRING,
             allowNull: false

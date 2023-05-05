@@ -1,28 +1,35 @@
+const Reply = require('./reply.model')
 
 module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define('user', {
-        first_name: {
+    const User = sequelize.define('User', {
+        userId: {
+            type: Sequelize.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        firstName: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        last_name: {
+        lastName: {
             type: Sequelize.STRING,
             allowNull: false
-        },
-        username: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
-        date_of_birth: {
-            type: Sequelize.DATE,
-            allowNull: true
         },
         school: {
             type: Sequelize.STRING
         },
-        image: {
-            type: Sequelize.BLOB('long'),
-            allowNull: true
+        imageUrl: {
+            type: Sequelize.STRING,
+        },
+        email:{
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        phone: {
+            type: Sequelize.STRING,
+        },
+        password: {
+            type: Sequelize.STRING,
         }
     },
     {

@@ -25,7 +25,7 @@ const db = {};
 fs.
     readdirSync(__dirname)
     .filter(file => {
-    return(file.indexOf('.') !== 0) && (file !== basename)
+    return(file.indexOf('.') !== 0) && (file !== basename && file !== 'association.js')
             && (file.slice(-3) === '.js');
 
     })

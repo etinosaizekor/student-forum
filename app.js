@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const db = require('./models');
+const sequelize = db.sequelize;
 
 const routes = require('./routes')
 const PORT = process.env.PORT || 5000;
@@ -19,6 +21,6 @@ app.use('/posts', routes.post);
 app.use('/category', routes.category)
 
 
-app.listen(PORT, ()=> {
-    console.log(`Server running at port ${PORT}`);
-})       
+app.listen(PORT, () => {
+  console.log(`Server running at port ${PORT}`);
+});
