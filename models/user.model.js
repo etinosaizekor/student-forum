@@ -1,7 +1,7 @@
 const Reply = require('./reply.model')
 
 module.exports = (sequelize, Sequelize) => {
-    const User = sequelize.define('User', {
+    const User = sequelize.define('user', {
         userId: {
             type: Sequelize.INTEGER,
             primaryKey: true,

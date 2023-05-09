@@ -2,22 +2,22 @@ const db = require('../models');
 const User = db.user;
 
 module.exports = (sequelize, Sequelize) => {
-    const Reply = sequelize.define('Reply', {
-        reply_body: {
+    const Reply = sequelize.define('reply', {
+        replyBody: {
             type: Sequelize.STRING,
             allowNull: false
         },
         userId:{
             type: Sequelize.INTEGER,
             references: {
-                model: 'Users',
+                model: 'users',
                 key: 'userId'
             }
         },
         commentId:{
             type: Sequelize.INTEGER,
             references: {
-                model: 'Comments',
+                model: 'comments',
                 key: 'commentId'
             }
         },

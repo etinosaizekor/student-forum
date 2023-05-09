@@ -1,6 +1,6 @@
 
 module.exports = (sequelize, Sequelize) => {
-    const Comment = sequelize.define('Comment', {
+    const Comment = sequelize.define('comment', {
         commentId: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
@@ -9,11 +9,11 @@ module.exports = (sequelize, Sequelize) => {
         userId:{
             type: Sequelize.INTEGER,
             references: {
-                model: 'Users',
+                model: 'users',
                 key: 'userId'
             }
         },
-        comment_body: {
+        commentBody: {
             type: Sequelize.STRING,
             allowNull: false
         },

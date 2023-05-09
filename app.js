@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+const cors = require('cors');
 const db = require('./models');
 const sequelize = db.sequelize;
 
-const routes = require('./routes')
+app.use(cors());
+
+const routes = require('./routes');
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
@@ -19,6 +21,8 @@ app.use((req, res, next) => {
 app.use('/users', routes.user);
 app.use('/posts', routes.post);
 app.use('/category', routes.category)
+app.use('/comments', routes.comment)
+// app.use('/replies', routes.reply)
 
 
 app.listen(PORT, () => {

@@ -1,8 +1,8 @@
 const {tryCatchWrapper} = require("../utils/withTryCatch");
 
 const create = tryCatchWrapper(async(Model, body) => {
-    console.log(body);
-    const newInstance = await Model.create(body);
+    console.log(Model);
+    const newInstance = await Model.bulkCreate(body);
     return JSON.stringify(newInstance)
 })
 
