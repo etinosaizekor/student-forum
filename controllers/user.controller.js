@@ -1,6 +1,7 @@
 const db = require('../models');
 const query = require('../services/queries')
 const User = db.user;
+console.log ("User " + User);
 
 const createUser = async (req, res) => {
     const newUser = await query.create(User, req.body);

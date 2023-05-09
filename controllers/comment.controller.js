@@ -1,6 +1,7 @@
 const db = require('../models');
 const query = require('../services/queries')
 const Comment = db.comment;
+console.log("Comment " + Comment);
 
 const createComment = async (req, res) => {
     const newComment = await query.create(Comment, req.body);
