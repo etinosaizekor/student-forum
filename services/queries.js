@@ -1,14 +1,15 @@
 const {tryCatchWrapper} = require("../utils/withTryCatch");
 
 const create = tryCatchWrapper(async(Model, body) => {
-    console.log(Model);
-    const newInstance = await Model.bulkCreate(body);
+    
+    const newInstance = await Model.create(body);
     return JSON.stringify(newInstance)
 })
 
 const getAll = tryCatchWrapper(async(Model) => {
   const result = await Model.findAll();
   return JSON.stringify(result)
+
 })
 
 const search = tryCatchWrapper(async (Model, criteria) => {
