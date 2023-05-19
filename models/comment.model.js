@@ -13,7 +13,14 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'userId'
             }
         },
-        commentBody: {
+        questionId: {
+            type: Sequelize.INTEGER,
+            references: {
+                model: 'questions',
+                key: 'questionId'
+            }
+        },
+        commentBody: {      
             type: Sequelize.STRING,
             allowNull: false
         },

@@ -3,8 +3,14 @@ const query = require('../services/queries')
 const Reply = db.reply;
 
 const createReply = async (req, res) => {
+    console.log(req.body);
     const newReply = await query.create(Reply, req.body);
     res.send(newReply)
+}
+
+const getReplies = async(req, res) => {
+    const replies = await query.getAll(Reply)
+    res.send(replies);  
 }
 
 const deleteReply = async (req, res) => {
@@ -19,6 +25,7 @@ const deleteReply = async (req, res) => {
 
 module.exports = {
     createReply,
-    deleteReply
+    deleteReply,
+    getReplies
 }
 

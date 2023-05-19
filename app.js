@@ -19,10 +19,10 @@ app.use((req, res, next) => {
   });
 
 app.use('/users', routes.user);
-app.use('/posts', routes.post);
+app.use('/questions', routes.question);
 app.use('/category', routes.category)
 app.use('/comments', routes.comment)
-// app.use('/replies', routes.reply)
+app.use('/replies', routes.reply)
 
 
 app.listen(PORT, () => {

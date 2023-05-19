@@ -6,6 +6,12 @@ const createComment = async (req, res) => {
     const newComment = await query.create(Comment, req.body);
     res.send(newComment)
 }
+
+const getAllComments = async(req, res) => {
+    const allComments = await query.getAll(Comment)
+    res.send(allComments);
+}
+
     
 const searchComment = async (req, res) => {
     const comment = await query.search(Comment, req.params);
@@ -25,6 +31,7 @@ const deleteComment = async (req, res) => {
 module.exports = {
     createComment,
     searchComment,
+    getAllComments,
     deleteComment
 }
 
