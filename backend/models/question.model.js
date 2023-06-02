@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
             autoIncrement: true
         },
-        questionTitle: {
+        questionTitle: {    
             type: Sequelize.STRING,
             allowNull: false
         },

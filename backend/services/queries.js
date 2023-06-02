@@ -12,10 +12,19 @@ const getAll = tryCatchWrapper(async(Model) => {
 
 })
 
-const search = tryCatchWrapper(async (Model, criteria) => {
-  const result = await Model.findAll({where: criteria});
+const search = tryCatchWrapper(async (Model, criteria, options = {}) => {
+  const { sortField, sortOrder, limit } = options;
+  
+  const queryOptions = {
+    where: criteria,
+    order: sortField && sortOrder ? [[sortField, sortOrder]] : undefined,
+    limit: limit ? parseInt(limit, 10) : undefined,
+  };
+
+  const result = await Model.findAll(queryOptions);
   return result;
-})
+});
+
 
 const update = tryCatchWrapper(async(Model, instanceIdentifier, instanceNewDetail) => {
     const result = await Model.update(instanceNewDetail, {

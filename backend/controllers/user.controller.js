@@ -8,17 +8,17 @@ const createUser = async (req, res) => {
 }
     
 const findUser = async (req, res) => {
+    console.log("in here?");
     const user = await query.search(User, req.body);
     if (user.length > 0) {
-      const { firstName, lastName } = user[0];
-      const fullName = `${firstName} ${lastName}`;
-      return res.status(200).json({ fullName });
+      const {userId, firstName, lastName, school, imageUrl } = user[0];
+      return res.status(200).json({userId, firstName, lastName, school, imageUrl });
     } else {
       return res.sendStatus(401);
     }
   };
   
-
+  
 const getAllUsers = async(req, res) => {
     const allUsers = await query.getAll(User)
     res.send(allUsers);

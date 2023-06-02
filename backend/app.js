@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 app.use('/users', routes.user);
 app.use('/questions', routes.question);
-app.use('/category', routes.category)
+app.use('/categories', routes.category)
 app.use('/comments', routes.comment)
 app.use('/replies', routes.reply)
 

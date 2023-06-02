@@ -6,12 +6,18 @@ const createCategory = async (req, res) => {
     res.send(newCategory)
 }
 
+const getAllCategory = async(req, res) => {
+    const allCategories = await query.getAll(Category);
+    res.send(allCategories)
+}
+
 const searchCategory = async (req, res) => {
     const category = await query.search(Category, req.params);
     res.send(category)
 }
-
+    
 module.exports = {
     createCategory,
-    searchCategory
+    searchCategory,
+    getAllCategory
 }

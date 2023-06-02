@@ -6,13 +6,16 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
             autoIncrement: true,
         },
-        category_name: {
+        categoryName: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        category_desc: {
+        categoryDescription: {
             type: Sequelize.STRING,
         },
+        iconUrl: {
+            type: Sequelize.STRING,
+        }
         
     });
     return Category; 
